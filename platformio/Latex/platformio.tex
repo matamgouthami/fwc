@@ -1,0 +1,185 @@
+\def\mytitle{IDE ASSIGMNMENT}
+\def\myauthor{MATAM GOUTHAMI}
+\def\mymodule{Future Wireless Communications (FWC)}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[hyphens,spaces,obeyspaces]{url}
+\usepackage[cmex10]{amsmath}
+\usepackage{mathtools}
+\singlespacing
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{multirow}
+\twocolumn
+
+
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+\usepackage[parfill]{parskip}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{karnaugh-map}
+\usepackage{pgf}
+\usepackage[hyphenbreaks]{breakurl}
+
+\usepackage{tabularx}
+\usetikzlibrary{calc}
+
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{watermark}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{titlesec}
+\DeclareMathOperator*{\Res}{Res}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\titlespacing{\subsection}{1pt}{\parskip}{3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+%\thiswatermark{\centering \put(400,-128.0){\includegraphics[scale=0.3]{logo}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\IITH\hspace{0.5em}-\hspace{0.6em}\mymodule}
+
+\def\inputGnumericTable{}                                 %%
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+ \begin{document}
+%
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+
+\vspace{3cm}
+\maketitle
+\tableofcontents
+  \section{Question}
+    Consider the minterm list form of a Boolean function $F$ given below.\\
+  \( F(P,Q,R,S) = \Sigma(m(0,2,5,7,9,11) + d(3,8,10,12,14)) \).\\
+  Here,$m$ denotes a minterm and $d$ denotes a don't care term.The number of essential prime implicants of the Function $F$ is
+     \section{Components}
+\begin{tabularx}{0.4\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X
+  | >{\centering\arraybackslash}X |}
+\hline
+\textbf{Component}& \textbf{Quantity} & \textbf{Values}\\
+\hline
+Arduino & 1 & UNO \\  
+\hline
+JumperWires & 2 & M-M \\ 
+\hline
+Resistor & 1 & 220\\
+\hline
+LED &  1 & 1\\
+\hline
+\end{tabularx}
+     \section{K-Maps}
+
+\begin{karnaugh-map}[4][4][1][$Y_1Y_0$][$X_1X_0$]
+\minterms{0,2,5,7,9,11}
+\maxterms{1,4,6,13,15}
+\indeterminants{3,8,10,12,14}
+\implicantedge{0}{0}{2}{2}
+\implicant{5}{7}
+\implicant{8}{10}
+
+
+
+
+\end{karnaugh-map}\\  
+
+
+ \begin{figure}
+\centering
+\includegraphics[width=0.7\columnwidth]{figs/led1.jpg}
+\caption{led}
+\label{fig:led1}
+\end{figure}
+   
+\section{Implementation}
+  \begin{tabularx}{0.46\textwidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X  | }
+
+
+\hline
+\textbf{Arduino PIN} & \textbf{lcd } \\ 
+\hline
+D2 & OUTPUT \\
+\hline
+GND & GND \\
+\hline
+\end{tabularx}
+
+\begin{center}
+    Connections
+\end{center}
+\section{Procedure and Output}
+    1. Connect the circuit as per the above table.\\
+    2. connect the led to arduino\\
+\\ \begin{tabularx}{0.45\textwidth} { 
+  | >{\centering\arraybackslash}X |}
+  \hline
+ https://github.com/matamgouthami/fwc\\/blob/main/platformio/src/gou.cpp\\
+  \hline
+\end{tabularx}  
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{figs/connection.jpg}
+\caption{Arduino connection with led}
+\label{fig:connection}
+\end{figure}
+
+\bibliographystyle{ieeetr}
+\end{document}
